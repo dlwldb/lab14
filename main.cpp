@@ -87,3 +87,33 @@ int main()
    printAccont(*accountPtr);
    delete accountPtr;
 }
+int main()
+{
+   const int n{2};
+   CDAccount accountArray[n];
+   for (int i = 0; i<n; ++i)
+   {
+    setAccount(accountArray[i]);
+    printAccont(accountArray[i]);
+   }
+  // CDAccount* accountPtr{new CDAccount};
+   //setAccount(account[0]);
+   //printAccont(accountPtr[0]);
+   //delete accountPtr;
+}
+
+동적배열
+int main()
+{
+   
+   int n{};
+   std::cout << "Enter the number of account array: ";
+   std::cin >> n;
+   CDAccount* accountArray{new CDAccount[n]};
+   for (int i = 0; i<n; ++i)
+   {
+    setAccount(accountArray[i]); // (*(accountArray+i))
+    printAccont(accountArray[i]);
+   }
+   delete[] accountArray;
+}
